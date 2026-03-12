@@ -22,9 +22,4 @@ Blinkit
 
 🚀 Features
 
-✔ Image-based product detection
-✔ Multi-website price comparison
-✔ Product quality scoring based on ratings
-✔ Budget-friendly recommendation
-✔ AI-powered product recognition
-✔ Simple web interface for uploading product images
+Image-based product detection,Multi-website price comparison,Product quality scoring based on ratings,Budget-friendly recommendation,AI-powered product recognition,Simple web interface for uploading product images
