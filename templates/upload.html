@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SightSaver | AI Visual Product Assistant</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-eye-slash fa-lg"></i> SightSaver
+        </div>
+        <nav>
+            <a href="/" class="btn" style="color: var(--text-muted); text-decoration: none;">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="main-grid">
+            <aside class="sidebar">
+                <h3><i class="fa-solid fa-clock-rotate-left"></i> Recent Searches</h3>
+                <div id="recentSearches" class="recent-list">
+                    <p style="color: var(--text-muted); font-size: 0.8rem;">Your recent visual matches will appear here.</p>
+                </div>
+            </aside>
+
+            <section class="content-area">
+                <section class="hero animate-fade-in">
+                    <h1>Visual Shopping Intelligence</h1>
+                    <p>Upload an image of any product to instantly compare prices across major marketplaces and analyze quality with AI.</p>
+                    
+                    <div class="upload-card">
+                        <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <h2 id="dropZoneText">Drop product image here or click to browse</h2>
+                            <p id="selectedFileText" style="margin-top: 1rem; color: var(--primary); font-weight: 600;"></p>
+                            <input type="file" id="fileInput" hidden accept="image/*" onchange="handleFileSelect(this)">
+                        </div>
+                        
+                        <div style="margin-top: 2rem;">
+                            <button class="btn btn-primary" onclick="uploadImage()" id="compareBtn">
+                                <i class="fa-solid fa-magnifying-glass"></i> Compare Products
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+        <div id="insightsSummary" class="insights-container" style="display: none;">
+            <!-- Best Value & Premium Choice will be injected here -->
+        </div>
+
+        <div id="results" class="results-grid">
+            <!-- Results will be injected here -->
+        </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading">
+        <div class="spinner"></div>
+        <h2 style="font-weight: 600; letter-spacing: 1px;">AI IS ANALYZING...</h2>
+        <p style="color: var(--text-muted);">Extracting visual features and searching marketplaces</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
